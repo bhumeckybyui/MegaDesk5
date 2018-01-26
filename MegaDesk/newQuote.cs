@@ -255,6 +255,7 @@ namespace MegaDesk
         private void setPicture(object sender, EventArgs e)
         {
             setPicture();
+            //
         }
 
         private void button1_Click(object sender, EventArgs e)
