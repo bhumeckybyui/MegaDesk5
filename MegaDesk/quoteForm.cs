@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace MegaDesk
 {
-    public partial class main : Form
+    public partial class quoteForm : Form
     {
-        public main()
+        public quoteForm()
         {
             InitializeComponent();
+            this.Text = "View Quote";
         }
     }
 }

@@ -16,6 +16,7 @@ namespace MegaDesk
         public newQuote()
         {
             InitializeComponent();
+            this.Text = "New Quote";
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -261,6 +262,25 @@ namespace MegaDesk
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void widthCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            errorMessageSpot.Text = "";
+            depthCB.BackColor = default(Color);
+            setPicture();
+        }
+
+        private void widthCB_MouseUp(object sender, MouseEventArgs e)
+        {
+            widthCB.BackColor = default(Color);
+            errorMessageSpot.Text = "";
+        }
+
+        private void depthCB_MouseUp(object sender, MouseEventArgs e)
+        {
+            depthCB.BackColor = default(Color);
+            errorMessageSpot.Text = "";
         }
     }
 }

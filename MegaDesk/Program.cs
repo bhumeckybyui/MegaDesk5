@@ -14,9 +14,15 @@ namespace MegaDesk
         [STAThread]
         static void Main()
         {
+
+            
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new newQuote());
+            Application.Run(new mainForm());
+
+           
+
 
         }
     }

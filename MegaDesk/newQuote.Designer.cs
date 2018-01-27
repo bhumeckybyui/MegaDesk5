@@ -148,8 +148,10 @@
             this.widthCB.Name = "widthCB";
             this.widthCB.Size = new System.Drawing.Size(121, 21);
             this.widthCB.TabIndex = 2;
+            this.widthCB.SelectedValueChanged += new System.EventHandler(this.widthCB_SelectedIndexChanged);
             this.widthCB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.widthCB_KeyDown);
             this.widthCB.KeyUp += new System.Windows.Forms.KeyEventHandler(this.widthCB_KeyUp);
+            this.widthCB.MouseUp += new System.Windows.Forms.MouseEventHandler(this.widthCB_MouseUp);
             // 
             // depthCB
             // 
@@ -160,6 +162,7 @@
             this.depthCB.TabIndex = 3;
             this.depthCB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.depthCB_KeyDown);
             this.depthCB.KeyUp += new System.Windows.Forms.KeyEventHandler(this.depthCB_KeyUp);
+            this.depthCB.MouseUp += new System.Windows.Forms.MouseEventHandler(this.depthCB_MouseUp);
             // 
             // surfaceLB
             // 
