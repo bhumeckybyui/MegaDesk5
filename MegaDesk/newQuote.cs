@@ -262,6 +262,37 @@ namespace MegaDesk
         private void button1_Click(object sender, EventArgs e)
         {
 
+            try
+            {
+
+                //float width, float depth, int drawers, String surfaceType, String rushOrder
+                //new Desk();
+                float width = float.Parse(widthCB.Text.ToString());
+                float depth = float.Parse(depthCB.Text.ToString());
+                int drawers = Int32.Parse(numberOfDrwaersCB.SelectedValue.ToString());
+
+                Desk desk = new Desk(width, depth, drawers, surfaceLB.SelectedValue.ToString(), rushOrderCB.SelectedValue.ToString(), customerNameBox.Text.ToString());
+                SaveQuote savequote = new SaveQuote(desk);
+                quotePrice.Text = savequote.price.ToString();
+
+                button1.Visible = false;
+                customerNameBox.Enabled = false;
+                widthCB.Enabled = false;
+                depthCB.Enabled = false;
+                numberOfDrwaersCB.Enabled = false;
+                surfaceLB.Enabled = false;
+                rushOrderCB.Enabled = false;
+
+
+
+
+
+
+            } catch(Exception err)
+            {
+                Console.WriteLine(err.Message);
+                //you have an error
+            }
         }
 
         private void widthCB_SelectedIndexChanged(object sender, EventArgs e)
@@ -281,6 +312,21 @@ namespace MegaDesk
         {
             depthCB.BackColor = default(Color);
             errorMessageSpot.Text = "";
+        }
+
+        private void widthCB_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rushOrderCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void depthCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

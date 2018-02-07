@@ -34,7 +34,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.customerNameBox = new System.Windows.Forms.TextBox();
             this.numberOfDrwaersCB = new System.Windows.Forms.ComboBox();
             this.errorMessageSpot = new System.Windows.Forms.Label();
             this.widthCB = new System.Windows.Forms.ComboBox();
@@ -43,6 +43,7 @@
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.rushOrderCB = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.quotePrice = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,12 +103,12 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "Rush order";
             // 
-            // textBox1
+            // customerNameBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(135, 13);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(360, 20);
-            this.textBox1.TabIndex = 1;
+            this.customerNameBox.Location = new System.Drawing.Point(135, 13);
+            this.customerNameBox.Name = "customerNameBox";
+            this.customerNameBox.Size = new System.Drawing.Size(360, 20);
+            this.customerNameBox.TabIndex = 1;
             // 
             // numberOfDrwaersCB
             // 
@@ -148,6 +149,7 @@
             this.widthCB.Name = "widthCB";
             this.widthCB.Size = new System.Drawing.Size(121, 21);
             this.widthCB.TabIndex = 2;
+            this.widthCB.SelectedIndexChanged += new System.EventHandler(this.widthCB_SelectedIndexChanged_1);
             this.widthCB.SelectedValueChanged += new System.EventHandler(this.widthCB_SelectedIndexChanged);
             this.widthCB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.widthCB_KeyDown);
             this.widthCB.KeyUp += new System.Windows.Forms.KeyEventHandler(this.widthCB_KeyUp);
@@ -160,6 +162,7 @@
             this.depthCB.Name = "depthCB";
             this.depthCB.Size = new System.Drawing.Size(121, 21);
             this.depthCB.TabIndex = 3;
+            this.depthCB.SelectedIndexChanged += new System.EventHandler(this.depthCB_SelectedIndexChanged);
             this.depthCB.KeyDown += new System.Windows.Forms.KeyEventHandler(this.depthCB_KeyDown);
             this.depthCB.KeyUp += new System.Windows.Forms.KeyEventHandler(this.depthCB_KeyUp);
             this.depthCB.MouseUp += new System.Windows.Forms.MouseEventHandler(this.depthCB_MouseUp);
@@ -190,6 +193,7 @@
             this.rushOrderCB.Name = "rushOrderCB";
             this.rushOrderCB.Size = new System.Drawing.Size(121, 21);
             this.rushOrderCB.TabIndex = 12;
+            this.rushOrderCB.SelectedIndexChanged += new System.EventHandler(this.rushOrderCB_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -201,11 +205,20 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // quotePrice
+            // 
+            this.quotePrice.AutoSize = true;
+            this.quotePrice.Location = new System.Drawing.Point(417, 282);
+            this.quotePrice.Name = "quotePrice";
+            this.quotePrice.Size = new System.Drawing.Size(0, 13);
+            this.quotePrice.TabIndex = 14;
+            // 
             // newQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(514, 335);
+            this.Controls.Add(this.quotePrice);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.rushOrderCB);
             this.Controls.Add(this.pictureBox);
@@ -214,7 +227,7 @@
             this.Controls.Add(this.widthCB);
             this.Controls.Add(this.errorMessageSpot);
             this.Controls.Add(this.numberOfDrwaersCB);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.customerNameBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -238,7 +251,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox customerNameBox;
         private System.Windows.Forms.ComboBox numberOfDrwaersCB;
         private System.Windows.Forms.Label errorMessageSpot;
         private System.Windows.Forms.ComboBox widthCB;
@@ -247,5 +260,6 @@
         private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.ComboBox rushOrderCB;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label quotePrice;
     }
 }

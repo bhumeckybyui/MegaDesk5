@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Desk.cs" />
     <Compile Include="mainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +72,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="saveQuote.cs" />
     <EmbeddedResource Include="mainForm.resx">
       <DependentUpon>mainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -87,6 +89,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="quoteForm.resx">
+      <DependentUpon>quoteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="quoteSearchForm.resx">
+      <DependentUpon>quoteSearchForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

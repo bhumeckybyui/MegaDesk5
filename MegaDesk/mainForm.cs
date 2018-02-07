@@ -19,14 +19,13 @@ namespace MegaDesk
         {
             InitializeComponent();
             this.Text = "Mega Desk";
-            nq = new newQuote();
-            vq = new quoteForm();
-            sq = new quoteSearchForm();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
+            nq = new newQuote();
             nq.ShowDialog();
             this.Show();
 
@@ -40,6 +39,7 @@ namespace MegaDesk
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
+            vq = new quoteForm();
             vq.ShowDialog();
             this.Show();
         }
@@ -47,8 +47,14 @@ namespace MegaDesk
         private void button3_Click(object sender, EventArgs e)
         {
             this.Hide();
+            sq = new quoteSearchForm();
             sq.ShowDialog();
             this.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
