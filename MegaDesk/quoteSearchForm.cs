@@ -43,6 +43,7 @@ namespace MegaDesk
             dataGridView1.Rows.Clear();
             try
             {
+                //
                 StreamReader file = new StreamReader(@"quotes.txt");
                 while ((line = file.ReadLine()) != null)
                 {
