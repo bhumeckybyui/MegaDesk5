@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,9 +12,9 @@ using System.Windows.Forms;
 
 namespace MegaDesk
 {
-    public partial class quoteSearchForm : Form
+    public partial class QuoteSearchForm : Form
     {
-        public quoteSearchForm()
+        public QuoteSearchForm()
         {
             InitializeComponent();
             this.Text = "Search Quotes";
@@ -36,24 +37,40 @@ namespace MegaDesk
 
         }
 
+        
         public void fillDatatable()
         {
-            String line;
-            //clear out the data first
             dataGridView1.Rows.Clear();
+            String line;
             try
             {
-                //
-                StreamReader file = new StreamReader(@"quotes.txt");
+
+                StreamReader file = new StreamReader(@"quotes.json");
+                Quotes q = null;
                 while ((line = file.ReadLine()) != null)
                 {
-                    
-
-                    String[] rowData = line.Split(',');
-
-                    dataGridView1.Rows.Add(rowData);
+                    q = JsonConvert.DeserializeObject<Quotes>(line); 
                 }
                 file.Close();
+
+
+                //add lines to datagrid
+
+                foreach (Desk d in q.quotes)
+                {
+                    String[] rowData = new String[8];
+                    rowData[0] = d.date;
+                    rowData[1] = d.name;
+                    rowData[2] = d.rushOrder;
+                    rowData[3] = d.surfaceType;
+                    rowData[4] = d.width.ToString();
+                    rowData[5] = d.depth.ToString();
+                    rowData[6] = d.drawers.ToString();
+                    rowData[7] = d.price.ToString();
+                    dataGridView1.Rows.Add(rowData);
+
+                }
+
             }
             catch (Exception e)
             {
@@ -66,35 +83,47 @@ namespace MegaDesk
 
         public void fillDatatable(String search)
         {
-            Console.WriteLine(search);
-            String line;
-            //clear out the data first
             dataGridView1.Rows.Clear();
-            
+            String line;
             try
             {
-                StreamReader file = new StreamReader(@"quotes.txt");
+
+                StreamReader file = new StreamReader(@"quotes.json");
+                Quotes q = null;
                 while ((line = file.ReadLine()) != null)
                 {
-
-                    if (line.Contains(search))
-                    { 
-
-                        String[] rowData = line.Split(',');
-                        dataGridView1.Rows.Add(rowData);
-
-                    }
+                    
+                    q = JsonConvert.DeserializeObject<Quotes>(line);
+                    
                 }
                 file.Close();
+
+
+                //add lines to datagrid
+
+                foreach (Desk d in q.quotes)
+                {
+                    String[] rowData = new String[8];
+                    rowData[0] = d.date;
+                    rowData[1] = d.name;
+                    rowData[2] = d.rushOrder;
+                    rowData[3] = d.surfaceType;
+                    rowData[4] = d.width.ToString();
+                    rowData[5] = d.depth.ToString();
+                    rowData[6] = d.drawers.ToString();
+                    rowData[7] = d.price.ToString();
+                    if (rowData[3].Contains(search))
+                    {
+                        dataGridView1.Rows.Add(rowData);
+                    }
+
+                }
+
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
-
-            
-
-
 
         }
 

@@ -1,6 +1,6 @@
 ﻿namespace MegaDesk
 {
-    partial class quoteSearchForm
+    partial class QuoteSearchForm
     {
         /// <summary>
         /// Required designer variable.

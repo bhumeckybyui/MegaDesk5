@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace MegaDesk
 {
-    class Desk
+    struct Desk
     {
 
         public String name;
@@ -18,19 +18,9 @@ namespace MegaDesk
         public int drawers;
         public String surfaceType;
         public String rushOrder;
+        public String date;
 
-        public Desk(float width, float depth, int drawers, String surfaceType, String rushOrder, String name)
-        {
-
-            this.width = width;
-            this.depth = depth;
-            this.drawers = drawers;
-            this.surfaceType = surfaceType;
-            this.rushOrder = rushOrder;
-            this.name = name;
-
-
-        }
+       
 
 
     }

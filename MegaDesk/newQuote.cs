@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace MegaDesk
 {
-    public partial class newQuote : Form
+    public partial class NewQuote : Form
     {
        
-        public newQuote()
+        public NewQuote()
         {
             InitializeComponent();
             this.Text = "New Quote";
@@ -271,7 +271,14 @@ namespace MegaDesk
                 float depth = float.Parse(depthCB.Text.ToString());
                 int drawers = Int32.Parse(numberOfDrwaersCB.SelectedValue.ToString());
 
-                Desk desk = new Desk(width, depth, drawers, surfaceLB.SelectedValue.ToString(), rushOrderCB.SelectedValue.ToString(), customerNameBox.Text.ToString());
+                //Desk desk = new Desk(width, depth, drawers, surfaceLB.SelectedValue.ToString(), rushOrderCB.SelectedValue.ToString(), customerNameBox.Text.ToString());
+                Desk desk = new Desk();
+                desk.width = width;
+                desk.depth = depth;
+                desk.surfaceType = surfaceLB.SelectedValue.ToString();
+                desk.rushOrder = rushOrderCB.SelectedValue.ToString();
+                desk.name = customerNameBox.Text.ToString();
+
                 SaveQuote savequote = new SaveQuote(desk);
                 quotePrice.Text = savequote.price.ToString();
 

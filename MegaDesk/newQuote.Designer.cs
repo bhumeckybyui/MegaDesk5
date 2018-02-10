@@ -1,6 +1,6 @@
 ﻿namespace MegaDesk
 {
-    partial class newQuote
+    partial class NewQuote
     {
         /// <summary>
         /// Required designer variable.

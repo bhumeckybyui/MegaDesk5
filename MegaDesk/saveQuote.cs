@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -16,8 +18,12 @@ namespace MegaDesk
         public SaveQuote(Desk desk)
         {
             _desk = desk;
+            
             price = calculatePrice();
+            _desk.price = price;
+            _desk.date = DateTime.Now.ToString();
             saveQuote();
+            makejsonFile();
         }
 
         private double calculatePrice()
@@ -132,6 +138,66 @@ namespace MegaDesk
             }
 
 
+
+
+        }
+
+        private void makejsonFile()
+        {
+
+            //makes the file if not there then, make an object for Quotes addds to the Quote Stack, then pushes that into JSON quotes file
+            //OR reads from file, push that into a new object of Quotes, 
+            //use that object file to add NEW Quote
+            //Save the updated Quote Object into json File
+            //.. distroy Quotes object
+
+            String jsonFile = "quotes.json";
+            if (!File.Exists(jsonFile))
+            {
+                //making new file
+                //File.CreateText(jsonFile);
+                
+                //make to Quotes Object class
+                
+                Quotes q = new Quotes();
+                q.addQuote(_desk);
+                File.WriteAllText(@jsonFile, JsonConvert.SerializeObject(q));
+
+
+            }
+            else
+            {
+                //already have the file
+
+                String line;
+                try
+                {
+                    StreamReader file = new StreamReader(@"quotes.json");
+                    Quotes q = null;
+                    while ((line = file.ReadLine()) != null)
+                    {
+                        Console.WriteLine(line);
+                        //Console.WriteLine(line
+                        q = JsonConvert.DeserializeObject<Quotes>(line);
+                        //File.CreateText(@"quotes.json", JsonConvert.SerializeObject(q));
+                    }
+                    file.Close();
+                    if (q != null)
+                    {
+                        //add new quot to quote stack
+                        q.addQuote(_desk);
+                        //write all the info to json file
+                        File.WriteAllText(@"quotes.json", JsonConvert.SerializeObject(q));
+
+                        //clear out memory
+                        q = null;
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
 
 
         }

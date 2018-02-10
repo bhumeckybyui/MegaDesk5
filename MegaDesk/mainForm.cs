@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace MegaDesk
 {
-    public partial class mainForm : Form
+    public partial class MainForm : Form
     {
-        newQuote nq;
-        quoteForm vq;
-        quoteSearchForm sq;
-        public mainForm()
+        NewQuote nq;
+        QuoteForm vq;
+        QuoteSearchForm sq;
+        public MainForm()
         {
             InitializeComponent();
             this.Text = "Mega Desk";
@@ -25,7 +25,7 @@ namespace MegaDesk
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            nq = new newQuote();
+            nq = new NewQuote();
             nq.ShowDialog();
             this.Show();
 
@@ -39,7 +39,7 @@ namespace MegaDesk
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            vq = new quoteForm();
+            vq = new QuoteForm();
             vq.ShowDialog();
             this.Show();
         }
@@ -47,7 +47,7 @@ namespace MegaDesk
         private void button3_Click(object sender, EventArgs e)
         {
             this.Hide();
-            sq = new quoteSearchForm();
+            sq = new QuoteSearchForm();
             sq.ShowDialog();
             this.Show();
         }
