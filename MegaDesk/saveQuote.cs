@@ -14,11 +14,12 @@ namespace MegaDesk
 
         private Desk _desk;
         public double price;
+        public List<int> rushPrice;
 
         public SaveQuote(Desk desk)
         {
             _desk = desk;
-            
+            setRushPriceFromFile();
             price = calculatePrice();
             _desk.price = price;
             _desk.date = DateTime.Now.ToString();
@@ -26,6 +27,21 @@ namespace MegaDesk
             makejsonFile();
         }
 
+        private void setRushPriceFromFile()
+        {
+
+            rushPrice = new List<int>();
+            StreamReader file = new StreamReader(@"rushOrderPrices.txt");
+
+            string line = null;
+            while ((line = file.ReadLine()) != null)
+            {
+                rushPrice.Add(int.Parse(line));
+                System.Diagnostics.Debug.WriteLine(line);
+                
+            }
+            
+        }
         private double calculatePrice()
         {
 
@@ -66,43 +82,53 @@ namespace MegaDesk
                 case "3 Day":
                     if (sqInSize < 1000)
                     {
-                        answer += 60;
+                        //answer += 60;
+                        answer += rushPrice[0];
                     }
                     else if (sqInSize >= 1000 && sqInSize < 2000)
                     {
-                        answer += 70;
+                        //answer += 70;
+                        answer += rushPrice[1];
                     }
                     else
                     {
-                        answer += 80;
+                        // answer += 80;
+
+                        answer += rushPrice[2];
                     }
-                    break;
+                        break;
                 case "5 Day":
                     if (sqInSize < 1000)
                     {
-                        answer += 40;
+                        //answer += 40;
+                        answer += rushPrice[3];
                     }
                     else if (sqInSize >= 1000 && sqInSize < 2000)
                     {
-                        answer += 50;
+                        //answer += 50;
+                        answer += rushPrice[4];
                     }
                     else
                     {
-                        answer += 60;
+                        //answer += 60;
+                        answer += rushPrice[5];
                     }
                     break;
                 case "7 Day":
                     if (sqInSize < 1000)
                     {
-                        answer += 30;
+                        //answer += 30;
+                        answer += rushPrice[6];
                     }
                     else if (sqInSize >= 1000 && sqInSize < 2000)
                     {
-                        answer += 35;
+                        //answer += 35;
+                        answer += rushPrice[7];
                     }
                     else
                     {
-                        answer += 40;
+                        //answer += 40;
+                        answer += rushPrice[8];
                     }
                     break;
             }
