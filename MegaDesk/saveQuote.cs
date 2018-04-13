@@ -25,6 +25,7 @@ namespace MegaDesk
             _desk.date = DateTime.Now.ToString();
             saveQuote();
             makejsonFile();
+
         }
 
         private void setRushPriceFromFile()
